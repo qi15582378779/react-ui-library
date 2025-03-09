@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "emitDeclarationOnly": true, // 只生成声明文件
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "outDir": "./dist", // 输出目录
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",  // 添加基础路径配置
+    "paths": {       // 添加路径映射
+      "@/*": ["src/*"]
+    },
+    "composite": true,
+    "incremental": true,
+    "declarationMap": true,
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "allowJs": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"], // 明确指定包含的文件类型
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"] // 排除测试文件
+}
