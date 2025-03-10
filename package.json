@@ -1,12 +1,24 @@
 {
-  "name": "react-ui-library",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@yuqi_dev/react-ui-library",
+  "private": false,
+  "version": "1.0.6",
   "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist",
-    "dist/types"
+    "dist/types",
+    "dist/index.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "library"
   ],
   "scripts": {
     "dev": "vite",
@@ -62,14 +74,12 @@
     "vitest": "^3.0.8"
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "style": "dist/index.css"
 }

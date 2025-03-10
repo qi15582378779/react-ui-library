@@ -14,6 +14,7 @@ export interface ButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   color?: ButtonColor;
+  className?: string;
   children: React.ReactNode;
   onClick?: () => void;
 }
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   size = "medium",
   color = "red",
+  className,
   children,
   onClick,
 }) => {
@@ -59,7 +61,7 @@ const Button: React.FC<ButtonProps> = ({
   const colorClass = getColorClass(color, variant);
   const sizeClass = sizeClasses[size];
   const variantClass = variantClasses[variant];
-  const buttonClasses = `px-4 py-2 rounded-md focus:outline-none ${variantClass} ${sizeClass} ${colorClass}`;
+  const buttonClasses = `px-4 py-2 rounded-md focus:outline-none ${variantClass} ${sizeClass} ${colorClass} ${className}`;
 
   return (
     <button className={buttonClasses} onClick={onClick}>
