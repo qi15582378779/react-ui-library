@@ -46,7 +46,7 @@ export default defineConfig({
       },
     },
     cssCodeSplit: false,
-    sourcemap: false,
+    sourcemap: true,
     cssTarget: 'chrome61', // 防止 vite 将 rgba() 颜色转化为 #RGBA 十六进制符号的形式。
   }
 });
