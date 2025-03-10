@@ -13,7 +13,7 @@
 ## 快速开始
 
 ```bash
-npm install react-ui-library
+npm install @yuqi_dev/react-ui-library
 ```
 
 ## 组件

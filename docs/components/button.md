@@ -7,7 +7,7 @@
 基础的按钮用法。
 
 ```jsx
-import { Button } from 'react-ui-library';
+import { Button } from '@yuqi_dev/react-ui-library';
 
 export default () => (
   <>
@@ -24,7 +24,7 @@ export default () => (
 按钮有大、中、小三种尺寸。
 
 ```jsx
-import { Button } from 'react-ui-library';
+import { Button } from '@yuqi_dev/react-ui-library';
 
 export default () => (
   <>
@@ -40,7 +40,7 @@ export default () => (
 按钮有多种预设颜色。
 
 ```jsx
-import { Button } from 'react-ui-library';
+import { Button } from '@yuqi_dev/react-ui-library';
 
 export default () => (
   <>

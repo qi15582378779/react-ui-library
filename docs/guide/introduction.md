@@ -8,10 +8,8 @@ My React UI Library 是一个基于 React 19 和 TypeScript 5.7 构建的现代�
 
 - 🚀 基于 React 19 和 TypeScript 5.7
 - 📦 使用 Vite 6.2 构建，开发体验极佳
-- 🎨 集成 Tailwind CSS，灵活的样式定制
 - 📚 完整的 TypeScript 类型支持
 - 🔍 Storybook 组件预览和文档
-- ✅ Vitest 单元测试支持
 - 📝 VitePress 文档站点
 
 ## 技术栈
@@ -19,10 +17,8 @@ My React UI Library 是一个基于 React 19 和 TypeScript 5.7 构建的现代�
 - React 19
 - TypeScript 5.7
 - Vite 6.2
-- Tailwind CSS 3.4
 - Storybook 8.6
 - VitePress 1.6
-- Vitest 3.0
 
 ## 为什么选择 My React UI Library?
 
@@ -30,7 +26,7 @@ My React UI Library 是一个基于 React 19 和 TypeScript 5.7 构建的现代�
 
 2. **开发体验**：基于 Vite 构建，提供极速的开发体验和热更新支持。
 
-3. **灵活定制**：通过 Tailwind CSS，您可以轻松定制组件样式，满足不同项目的需求。
+3. **组件丰富**：提供丰富的组件选择，满足各种业务场景需求。
 
 4. **类型安全**：完整的 TypeScript 支持，提供准确的类型提示和错误检查。
 

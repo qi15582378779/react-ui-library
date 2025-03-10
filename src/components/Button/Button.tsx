@@ -1,5 +1,4 @@
 import React from "react";
-import "./Button.css";  // 改用普通 CSS
 
 // 定义按钮的变体类型
 type ButtonVariant = "primary" | "secondary" | "tertiary";

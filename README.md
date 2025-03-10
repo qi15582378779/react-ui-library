@@ -1,31 +1,29 @@
 # React UI Library
 
-一个现代化的 React UI 组件库，基于 React + TypeScript + Vite + Tailwind CSS 构建。
+一个现代化的 React UI 组件库，基于 React + TypeScript + Vite 构建。
 
 ## 特性
 
 - 🚀 基于 React 19 和 TypeScript 5.7
 - 📦 使用 Vite 6.2 构建，开发体验极佳
-- 🎨 集成 Tailwind CSS，灵活的样式定制
 - 📚 完整的 TypeScript 类型支持
-- 🔍 Storybook 组件预览和文档
-- ✅ Vitest 单元测试支持
+- 🔍 Storybook 组件预览和文档, 测试
 - 📝 VitePress 文档站点
 
 ## 安装
 
 ```bash
-npm install react-ui-library
+npm install @yuqi_dev/react-ui-library
 # 或者
-yarn add react-ui-library
+yarn add @yuqi_dev/react-ui-library
 # 或者
-pnpm add react-ui-library
+pnpm add @yuqi_dev/react-ui-library
 ```
 
 ## 快速开始
 
 ```jsx
-import { Button } from 'react-ui-library'
+import { Button } from '@yuqi_dev/react-ui-library'
 
 function App() {
   return (
@@ -43,7 +41,7 @@ function App() {
 1. 克隆仓库
 ```bash
 git clone <repository-url>
-cd my-react-ui-library
+cd react-ui-library
 ```
 
 2. 安装依赖
@@ -76,23 +74,12 @@ pnpm docs:build
 pnpm build-storybook
 ```
 
-## 测试
-
-```bash
-# 运行单元测试
-pnpm test
-
-# 类型检查
-pnpm type-check
-```
-
 ## 目录结构
 
 ```
 ├── src/               # 组件源码
 ├── docs/              # 文档
-├── stories/           # Storybook 示例
-├── tests/             # 测试文件
+├── stories/           # Storybook 测试示例
 └── vite.config.ts     # Vite 配置
 ```
 
@@ -101,10 +88,8 @@ pnpm type-check
 - React 19
 - TypeScript 5.7
 - Vite 6.2
-- Tailwind CSS 3.4
 - Storybook 8.6
 - VitePress 1.6
-- Vitest 3.0
 
 ## 贡献指南
 

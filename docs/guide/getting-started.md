@@ -6,27 +6,21 @@
 
 ```bash
 # 使用 npm
-npm install react-ui-library
+npm install @yuqi_dev/react-ui-library
 
 # 使用 yarn
-yarn add react-ui-library
+yarn add @yuqi_dev/react-ui-library
 
 # 使用 pnpm
-pnpm add react-ui-library
+pnpm add @yuqi_dev/react-ui-library
 ```
 
 ## 使用
 
-1. 在您的项目入口文件中导入样式：
+1. 在您的项目中导入组件：
 
 ```tsx
-import 'react-ui-library/dist/index.css';
-```
-
-2. 在组件中使用：
-
-```tsx
-import { Button } from 'react-ui-library';
+import { Button } from '@yuqi_dev/react-ui-library';
 
 function App() {
   return (
@@ -37,40 +31,14 @@ function App() {
 }
 ```
 
-## 配置主题
+## 组件文档
 
-我们的组件库使用 Tailwind CSS 进行样式管理，您可以通过配置 tailwind.config.js 来自定义主题：
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: '#1890ff',
-        // 添加您的自定义颜色
-      },
-    },
-  },
-};
-```
+访问我们的[在线文档](http://localhost:5173)了解更多组件的使用方法和示例。每个组件都提供了详细的 API 说明和使用示例，帮助您快速上手。
 
 ## 开发环境
 
-如果您想在本地开发和调试组件：
+如果您想在本地运行文档站点或开发环境：
 
-1. 克隆仓库
-```bash
-git clone <repository-url>
-cd react-ui-library
-```
-
-2. 安装依赖
-```bash
-pnpm install
-```
-
-3. 启动开发服务器
 ```bash
 # 启动组件库开发环境
 pnpm dev
