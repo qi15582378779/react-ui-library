@@ -1,6 +1,7 @@
+import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Button from "./Button";
+import Button from './Button'
 
 describe("Button", () => {
   it("应该使用默认props正确渲染按钮", () => {

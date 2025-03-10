@@ -2,8 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
   base: "/",
@@ -26,6 +24,9 @@ export default defineConfig({
       },
     }),
   ],
+  css: {
+    modules: false,
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
@@ -40,23 +41,14 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
-        assetFileNames: 'index.css'
+        // assetFileNames: (assetInfo) => {
+        //   if (assetInfo.name === 'style.css') return 'style.css';
+        //   return assetInfo.name || 'unknown.css';
+        // },
+        assetFileNames: 'style.css',
       },
     },
     cssCodeSplit: false,
-    emptyOutDir: true,
-  },
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src')
-    }
-  },
-  css: {
-    postcss: {
-      plugins: [
-        tailwindcss,
-        autoprefixer,
-      ],
-    }
+    sourcemap: true
   }
 });

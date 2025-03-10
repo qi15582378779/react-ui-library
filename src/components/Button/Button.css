@@ -1,0 +1,110 @@
+.elegant-button {
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 尺寸样式 */
+.elegant-small {
+  font-size: 0.875rem;
+}
+
+.elegant-medium {
+  font-size: 1rem;
+}
+
+.elegant-large {
+  font-size: 1.125rem;
+}
+
+/* 变体样式 */
+.elegant-primary {
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.elegant-secondary {
+  background-color: #d1d5db;
+  color: #1f2937;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.elegant-secondary:hover {
+  background-color: #9ca3af;
+}
+
+.elegant-tertiary {
+  background-color: transparent;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid #9ca3af;
+  border-radius: 0.25rem;
+}
+
+.elegant-tertiary:hover {
+  background-color: #f9fafb;
+}
+
+/* 颜色样式 - Primary和Secondary变体 */
+.elegant-red {
+  background-color: #ef4444;
+  color: white;
+}
+
+.elegant-red:hover {
+  background-color: #b91c1c;
+}
+
+.elegant-green {
+  background-color: #22c55e;
+  color: white;
+}
+
+.elegant-green:hover {
+  background-color: #15803d;
+}
+
+.elegant-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.elegant-blue:hover {
+  background-color: #1d4ed8;
+}
+
+/* 颜色样式 - Tertiary变体 */
+.elegant-tertiary.elegant-red {
+  background-color: transparent;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.elegant-tertiary.elegant-red:hover {
+  color: #b91c1c;
+}
+
+.elegant-tertiary.elegant-green {
+  background-color: transparent;
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
+.elegant-tertiary.elegant-green:hover {
+  color: #15803d;
+}
+
+.elegant-tertiary.elegant-blue {
+  background-color: transparent;
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.elegant-tertiary.elegant-blue:hover {
+  color: #1d4ed8;
+}

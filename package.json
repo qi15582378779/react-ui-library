@@ -1,15 +1,14 @@
 {
   "name": "@yuqi_dev/react-ui-library",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.9",
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
+  "style": "dist/style.css",
   "files": [
-    "dist",
-    "dist/types",
-    "dist/index.css"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -46,7 +45,6 @@
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
-    "@tailwindcss/postcss": "^4.0.12",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
@@ -65,7 +63,6 @@
     "playwright": "^1.51.0",
     "postcss": "^8.5.3",
     "storybook": "^8.6.4",
-    "tailwindcss": "^3.4.17",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
@@ -80,6 +77,5 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
-  },
-  "style": "dist/index.css"
+  }
 }
