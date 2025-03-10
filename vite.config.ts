@@ -2,11 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 export default defineConfig({
   base: "/",
   publicDir: "public",
   plugins: [
+    cssInjectedByJsPlugin(), // css 注入到 js 中
     react(),
     dts({
       tsconfigPath: "tsconfig.app.json",
@@ -41,14 +43,10 @@ export default defineConfig({
           react: "React",
           "react-dom": "ReactDOM",
         },
-        // assetFileNames: (assetInfo) => {
-        //   if (assetInfo.name === 'style.css') return 'style.css';
-        //   return assetInfo.name || 'unknown.css';
-        // },
-        assetFileNames: 'style.css',
       },
     },
     cssCodeSplit: false,
-    sourcemap: true
+    sourcemap: false,
+    cssTarget: 'chrome61', // 防止 vite 将 rgba() 颜色转化为 #RGBA 十六进制符号的形式。
   }
 });
