@@ -72,5 +72,12 @@ You can apply the theme on any DOM node, not just the `body`
   --primitives-color-ring-100: rgba(212, 212, 216, 1);
 }
 
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 
 

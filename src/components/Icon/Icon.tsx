@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import clsx from "clsx";
 import { IconName } from "./name";
 
@@ -9,7 +9,8 @@ const icons = import.meta.glob("/src/assets/icons/*.svg", {
 
 export interface IconProps {
   name?: IconName;
-  size?: number | string;
+  src?: string;
+  size?: number | string | [number, number]; // ✅ 支持 [width, height]
   color?: string;
   className?: string;
   fallback?: React.ReactNode;
@@ -18,6 +19,7 @@ export interface IconProps {
 
 export const Icon: React.FC<IconProps> = ({
   name,
+  src,
   size = 24,
   color = "currentColor",
   className,
@@ -26,61 +28,77 @@ export const Icon: React.FC<IconProps> = ({
 }) => {
   const [svgContent, setSvgContent] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!name) return;
+  // ✅ 计算最终的宽高
+  const finalSize = useMemo(() => {
+    if (Array.isArray(size) && size.length === 2) {
+      return { width: `${size[0]}px`, height: `${size[1]}px` };
+    }
+    const sizeStr = typeof size === "number" ? `${size}px` : size;
+    return { width: sizeStr, height: sizeStr };
+  }, [size]);
 
-    const iconPath = icons[`/src/assets/icons/${name}.svg`]?.default;
-    if (!iconPath) {
-      console.error(`Icon "${name}" not found in assets/icons.`);
+  useEffect(() => {
+    let svgPath =
+      src || (name ? icons[`/src/assets/icons/${name}.svg`]?.default : null);
+    if (!svgPath) {
+      console.error(`Icon "${name}" not found.`);
       return;
     }
 
-    fetch(iconPath)
+    // ✅ 处理用户传入的 `src`
+    if (src) {
+      if (src.startsWith("http") || src.startsWith("data:image/svg+xml")) {
+        // ✅ 外部 HTTP URL 或 Base64 SVG
+        svgPath = src;
+      } else if (src.startsWith("/")) {
+        // ✅ 绝对路径 `/icons/edit.svg`
+        svgPath = `${window.location.origin}${src}`;
+      } else if (src.startsWith("./") || src.startsWith("../")) {
+        // ✅ 处理相对路径 `./icons/edit.svg`
+        const baseUrl = window.location.href;
+        svgPath = new URL(src, baseUrl).href;
+      }
+    }
+
+    fetch(svgPath)
       .then((response) => response.text())
       .then((svg) => {
-        console.log("Original SVG:", name, svg);
+        console.log("Original SVG:", name || src, svg);
 
-        // const finalSize = typeof size === "number" ? `${size}px` : size;
+        const { width, height } = finalSize;
 
-        // 替换 width、height 和颜色
-        const updatedSvg = svg
+        // ✅ 替换 width、height
+        let updatedSvg = svg
           .replace(
             /<svg([^>]*?)width=["'][^"']*["']/g,
-            `<svg$1width="${finalSize}"`
+            `<svg$1width="${width}"`
           )
           .replace(
             /<svg([^>]*?)height=["'][^"']*["']/g,
-            `<svg$1height="${finalSize}"`
-          )
-          .replace(/stroke=["']([^"']+)["']/g, `stroke="${color}"`)
-          .replace(/fill=["'](?!none)([^"']+)["']/g, `fill="${color}"`);
+            `<svg$1height="${height}"`
+          );
 
-        console.log("Updated SVG:", name, updatedSvg);
+        // ✅ 处理 fill 和 stroke
+        updatedSvg = updatedSvg
+          .replace(/stroke=["']([^"']+)["']/g, `stroke="${color}"`) // 修改 stroke
+          .replace(/fill=["'](?!none|url\(#)([^"']+)["']/g, `fill="${color}"`); // ✅ 只替换普通颜色，不替换 `url(#...)`
+
+        console.log("Updated SVG:", name || src, updatedSvg);
         setSvgContent(updatedSvg);
       })
       .catch((error) => {
-        console.error(`Failed to load icon: ${name}`, error);
+        console.error(`Failed to load icon: ${name || src}`, error);
         onError?.(error);
       });
-  }, [name, color, size]);
-
-  const finalSize = typeof size === "number" ? `${size}px` : size;
+  }, [name, src, color, finalSize]);
 
   if (!svgContent) {
-    return (
-      <div
-        className={clsx("icon", className)}
-        style={{ width: finalSize, height: finalSize }}
-      >
-        {fallback}
-      </div>
-    );
+    return <div className={clsx("icon", className)}>{fallback}</div>;
   }
 
   return (
     <div
       className={clsx("icon", className)}
-      style={{ width: finalSize, height: finalSize }}
       dangerouslySetInnerHTML={{ __html: svgContent }}
     />
   );
