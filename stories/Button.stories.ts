@@ -1,111 +1,107 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../src/components';
 
-const meta: Meta<typeof Button> = {
-  title: "组件/Button",
+const meta = {
+  title: "组件/Button 按钮",
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      description: '按钮变体样式',
-      options: ['primary', 'secondary', 'tertiary'],
-      control: { type: 'select' }
+    text: {
+      description: '按钮文本',
+      control: 'text'
     },
     size: {
       description: '按钮尺寸',
-      options: ['small', 'medium', 'large'],
-      control: { type: 'radio' }
-    },
-    color: {
-      description: '按钮颜色',
-      options: ['red', 'green', 'blue'],
+      options: ['sm', 'default', 'lg', 'icon'],
       control: { type: 'select' }
     },
-    onClick: { action: 'clicked' }
+    variant: {
+      description: '按钮变体样式',
+      options: ['default', 'neutral', 'no-shadow'],
+      control: { type: 'select' }
+    },
+    disabled: {
+      description: '是否禁用',
+      control: 'boolean'
+    },
+    href: {
+      description: '链接地址',
+      control: 'text'
+    },
+    openInNewTab: {
+      description: '是否在新窗口打开',
+      control: 'boolean'
+    },
+    iconName: {
+      description: '图标名称',
+      control: 'select',
+      options: ['plus', 'minus', 'search', 'check']
+    },
+    iconSize: {
+      description: '图标大小',
+      control: 'number'
+    },
+    iconColor: {
+      description: '图标颜色',
+      control: 'color'
+    }
   }
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+// 基础按钮
+export const Default: Story = {
   args: {
-    variant: "primary",
-    children: "主要按钮",
-    color: "blue",
-    size: "medium"
+    text: '默认按钮'
   }
 };
 
-export const Secondary: Story = {
+// 不同尺寸
+export const Sizes: Story = {
+  render: () => React.createElement('div', 
+    { style: { display: 'flex', gap: '12px', alignItems: 'center' } },
+    React.createElement(Button, { size: "sm", text: "小按钮" }),
+    React.createElement(Button, { size: "default", text: "默认按钮" }),
+    React.createElement(Button, { size: "lg", text: "大按钮" })
+  )
+};
+
+// 不同变体
+export const Variants: Story = {
+  render: () => React.createElement('div',
+    { style: { display: 'flex', gap: '12px', alignItems: 'center' } },
+    React.createElement(Button, { variant: "default", text: "默认样式" }),
+    React.createElement(Button, { variant: "neutral", text: "中性样式" }),
+    React.createElement(Button, { variant: "no-shadow", text: "无阴影" })
+  )
+};
+
+// 图标按钮
+export const IconButtons: Story = {
+  render: () => React.createElement('div',
+    { style: { display: 'flex', gap: '12px', alignItems: 'center' } },
+    React.createElement(Button, { size: "icon", iconName: "plus" }),
+    React.createElement(Button, { size: "icon", iconName: "search" }),
+    React.createElement(Button, { size: "icon", iconName: "check", variant: "neutral" })
+  )
+};
+
+// 禁用状态
+export const Disabled: Story = {
   args: {
-    variant: "secondary",
-    children: "次要按钮",
-    color: "green",
-    size: "medium"
+    text: '禁用按钮',
+    disabled: true
   }
 };
 
-export const Tertiary: Story = {
+// 链接按钮
+export const Link: Story = {
   args: {
-    variant: "tertiary",
-    children: "文本按钮",
-    color: "blue",
-    size: "medium"
-  }
-};
-
-export const Small: Story = {
-  args: {
-    size: "small",
-    children: "小型按钮",
-    variant: "primary",
-    color: "blue"
-  }
-};
-
-export const Large: Story = {
-  args: {
-    size: "large",
-    children: "大型按钮",
-    variant: "primary",
-    color: "green"
-  }
-};
-
-export const Red: Story = {
-  args: {
-    color: "red",
-    children: "红色按钮",
-    variant: "primary",
-    size: "medium"
-  }
-};
-
-export const Green: Story = {
-  args: {
-    color: "green",
-    children: "绿色按钮",
-    variant: "primary",
-    size: "medium"
-  }
-};
-
-export const Blue: Story = {
-  args: {
-    color: "blue",
-    children: "蓝色按钮",
-    variant: "primary",
-    size: "medium"
-  }
-};
-
-export const WithOnClick: Story = {
-  args: {
-    children: "点击事件按钮",
-    variant: "primary",
-    color: "blue",
-    size: "medium",
-    onClick: () => alert("按钮被点击了！")
+    text: '链接按钮',
+    href: 'https://example.com',
+    openInNewTab: true
   }
 };

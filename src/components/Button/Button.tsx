@@ -1,10 +1,11 @@
 import React from "react";
 import { Icon } from "../Icon/Icon";
-// import { IconName } from "../Icon/icons";
+import { IconName } from "../Icon/name";
 import "./style.css";
 import clsx from "clsx";
+import type { IconProps } from "../Icon/Icon";
 
-export interface ButtonProps {
+export interface ButtonProps extends IconProps {
   /** 按钮文本 */
   text?: string;
   /** 按钮大小 */
@@ -15,18 +16,12 @@ export interface ButtonProps {
   className?: string;
   /** 链接地址 */
   href?: string;
-  /** 图标名称 */
-  iconName?: string;
   /** 点击事件 */
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   /** 是否禁用 */
   disabled?: boolean;
   /** 新窗口打开链接 */
   openInNewTab?: boolean;
-  /** 图标大小 */
-  iconSize?: number;
-  /** 图标颜色 */
-  iconColor?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -35,7 +30,8 @@ const Button: React.FC<ButtonProps> = ({
   variant = "default",
   className = "",
   href,
-  iconName = 'user',
+  iconName,
+  iconSrc,
   onClick,
   disabled = false,
   openInNewTab = true,
@@ -63,12 +59,12 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const content = size === "icon" && iconName ? (
-    // <Icon
-    //   name={iconName}
-    //   size={iconSize}
-    //   color={iconColor}
-    // />
-    1
+    <Icon
+      iconName={iconName as IconName}
+      iconSize={iconSize}
+      iconSrc={iconSrc}
+      iconColor={iconColor}
+    />
   ) : (
     text
   );

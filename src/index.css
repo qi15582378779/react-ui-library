@@ -76,7 +76,6 @@ You can apply the theme on any DOM node, not just the `body`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 

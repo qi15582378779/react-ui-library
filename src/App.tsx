@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg?url'
 import './App.css'
-import { Icon } from './index'
+import { Icon, Button } from './index'
 import icon from './assets/icons/search.svg'
 import icon1 from '/vite.svg'
 
@@ -32,10 +32,14 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
 
-      <Icon name="test" size={[60, 60]} />
-      <Icon name='user' color='red' size={40} />
-      <Icon src={icon} size={32} color="blue" />
-      <Icon src={icon1} size={62} color="blue" />
+      <Icon iconName="test" iconSize={[60, 60]} />
+      <Icon iconName='user' iconColor='red' iconSize={40} />
+      <Icon iconSrc={icon} iconSize={32} iconColor="blue" />
+      <Icon iconSrc={icon1} iconSize={62} iconColor="blue" />
+      <Icon iconSrc={'https://si.online/logo.svg'} iconColor="blue" />
+      <Icon iconSrc="not-found" iconFallback={<span>🚫</span>} />
+
+      <Button text='test' variant='neutral'/>
     </>
   )
 }

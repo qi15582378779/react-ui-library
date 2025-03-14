@@ -1,71 +1,116 @@
 # Button 按钮
 
-按钮用于开始一个即时操作。
+按钮用于触发一个操作或者跳转链接。
 
 ## 基础用法
 
-基础的按钮用法。
+最基础的按钮用法。
 
-```jsx
+```tsx
 import { Button } from '@yuqi_dev/react-ui-library';
 
 export default () => (
   <>
-    <Button>默认按钮</Button>
-    <Button variant="primary">主要按钮</Button>
-    <Button variant="secondary">次要按钮</Button>
-    <Button variant="tertiary">文本按钮</Button>
+    <Button text="默认按钮" />
+    <Button variant="neutral" text="中性按钮" />
+    <Button variant="no-shadow" text="无阴影按钮" />
   </>
 );
 ```
 
 ## 按钮尺寸
 
-按钮有大、中、小三种尺寸。
+按钮支持四种尺寸：小型(sm)、默认(default)、大型(lg)和图标型(icon)。
 
-```jsx
+```tsx
 import { Button } from '@yuqi_dev/react-ui-library';
 
 export default () => (
   <>
-    <Button size="small">小型按钮</Button>
-    <Button size="medium">中型按钮</Button>
-    <Button size="large">大型按钮</Button>
+    <Button size="sm" text="小按钮" />
+    <Button size="default" text="默认按钮" />
+    <Button size="lg" text="大按钮" />
+    <Button size="icon" iconName="plus" />
   </>
 );
 ```
 
-## 按钮颜色
+## 图标按钮
 
-按钮有多种预设颜色。
+可以通过设置 `iconName` 或 `iconSrc` 来使用图标按钮。
 
-```jsx
+```tsx
 import { Button } from '@yuqi_dev/react-ui-library';
 
 export default () => (
   <>
-    <Button color="red">红色按钮</Button>
-    <Button color="green">绿色按钮</Button>
-    <Button color="blue">蓝色按钮</Button>
+    <Button size="icon" iconName="plus" />
+    <Button size="icon" iconName="search" variant="neutral" />
+    <Button text="带图标的按钮" iconName="check" />
   </>
+);
+```
+
+## 链接按钮
+
+可以通过设置 `href` 属性将按钮变成链接。
+
+```tsx
+import { Button } from '@yuqi_dev/react-ui-library';
+
+export default () => (
+  <Button 
+    text="访问外部链接" 
+    href="https://example.com" 
+    openInNewTab={true}
+  />
+);
+```
+
+## 禁用状态
+
+通过 `disabled` 属性设置按钮禁用状态。
+
+```tsx
+import { Button } from '@yuqi_dev/react-ui-library';
+
+export default () => (
+  <Button text="禁用按钮" disabled />
 );
 ```
 
 ## API
 
-### 属性
+### Props
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| variant | 按钮变体样式 | `'primary' \| 'secondary' \| 'tertiary'` | `'primary'` |
-| size | 按钮尺寸 | `'small' \| 'medium' \| 'large'` | `'medium'` |
-| color | 按钮颜色 | `'red' \| 'green' \| 'blue'` | `'red'` |
-| children | 按钮内容 | `React.ReactNode` | - |
-| onClick | 点击按钮时的回调 | `() => void` | - |
+| text | 按钮文本 | `string` | `'Button'` |
+| size | 按钮大小 | `'sm' \| 'default' \| 'lg' \| 'icon'` | `'default'` |
+| variant | 按钮变体样式 | `'default' \| 'neutral' \| 'no-shadow'` | `'default'` |
+| className | 自定义类名 | `string` | - |
+| href | 链接地址 | `string` | - |
+| onClick | 点击事件回调 | `(event: React.MouseEvent<HTMLDivElement>) => void` | - |
+| disabled | 是否禁用 | `boolean` | `false` |
+| openInNewTab | 是否在新窗口打开链接 | `boolean` | `true` |
+| iconName | 图标名称 | `IconName` | - |
+| iconSrc | 图标资源地址 | `string` | - |
+| iconSize | 图标大小 | `number \| string \| [number, number]` | `24` |
+| iconColor | 图标颜色 | `string` | `'currentColor'` |
 
-### 样式变量
+### CSS 变量
 
-按钮使用 Tailwind CSS 进行样式定制，你可以通过修改 Tailwind 配置来自定义按钮样式。
+按钮组件使用了以下 CSS 变量，你可以通过覆盖这些变量来自定义样式：
+
+```css
+:root {
+  --collection-1-border-duplicate: /* 边框颜色 */
+  --collection-1-border-radius-duplicate: /* 边框圆角 */
+  --text: /* 文本颜色 */
+  --main: /* 主要背景色 */
+  --box-shadow: /* 阴影效果 */
+}
+```
 
 ## 设计指南
 

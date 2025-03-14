@@ -19,3 +19,4 @@ npm install @yuqi_dev/react-ui-library
 ## 组件
 
 - [Button](./components/button.md) - 按钮组件
+- [Icon](./components/icon.md) - 图标组件
