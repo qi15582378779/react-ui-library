@@ -20,17 +20,20 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "rm -rf dist && tsc && vite build",
+    "build": "npm run generate-icons && rm -rf dist && tsc && vite build",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "type-check": "tsc --noEmit",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "dev:ts": "tsx",
+    "generate-icons": "tsx scripts/generateIconNames.ts"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -57,6 +60,7 @@
     "playwright": "^1.51.0",
     "postcss": "^8.5.3",
     "storybook": "^8.6.4",
+    "tsx": "^4.19.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",

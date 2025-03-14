@@ -1,48 +1,104 @@
 import React from "react";
-import "./Button.css";
+import { Icon } from "../Icon/Icon";
+// import { IconName } from "../Icon/icons";
+import "./style.css";
+import clsx from "clsx";
 
-// 定义按钮的变体类型
-type ButtonVariant = "primary" | "secondary" | "tertiary";
-
-// 定义按钮的大小类型
-type ButtonSize = "small" | "medium" | "large";
-
-// 定义按钮的颜色类型
-type ButtonColor = "red" | "green" | "blue";
-
-// 定义按钮组件的 props 类型
 export interface ButtonProps {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  color?: ButtonColor;
+  /** 按钮文本 */
+  text?: string;
+  /** 按钮大小 */
+  size?: "sm" | "icon" | "lg" | "default";
+  /** 按钮变体样式 */
+  variant?: "neutral" | "no-shadow" | "default";
+  /** 自定义类名 */
   className?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
+  /** 链接地址 */
+  href?: string;
+  /** 图标名称 */
+  iconName?: string;
+  /** 点击事件 */
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  /** 是否禁用 */
+  disabled?: boolean;
+  /** 新窗口打开链接 */
+  openInNewTab?: boolean;
+  /** 图标大小 */
+  iconSize?: number;
+  /** 图标颜色 */
+  iconColor?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
-  size = "medium",
-  color = "red",
+  text = "Button",
+  size = "default",
+  variant = "default",
   className = "",
-  children,
+  href,
+  iconName = 'user',
   onClick,
+  disabled = false,
+  openInNewTab = true,
+  iconSize = 24,
+  iconColor = "currentColor",
 }) => {
-  // 直接使用类名，不需要通过 styles 对象
-  const buttonClasses = [
-    "elegant-button",
-    `elegant-${variant}`,
-    `elegant-${size}`,
-    `elegant-${color}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const buttonClass = clsx(
+    "button",
+    size,
+    variant,
+    {
+      disabled,
+      "size-icon-variant": size === "icon" && (variant === "default" || variant === "neutral"),
+      "size-icon-variant-no": size === "icon" && variant === "no-shadow"
+    },
+    className
+  );
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
+    onClick?.(e);
+  };
+
+  const content = size === "icon" && iconName ? (
+    // <Icon
+    //   name={iconName}
+    //   size={iconSize}
+    //   color={iconColor}
+    // />
+    1
+  ) : (
+    text
+  );
+
+  const buttonContent = href ? (
+    <a
+      className="text-wrapper"
+      href={href}
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
+      onClick={e => disabled && e.preventDefault()}
+    >
+      {content}
+    </a>
+  ) : (
+    <div className="text-wrapper">
+      {content}
+    </div>
+  );
 
   return (
-    <button className={buttonClasses} onClick={onClick}>
-      {children}
-    </button>
+    <div 
+      className={buttonClass}
+      onClick={handleClick}
+      role="button"
+      tabIndex={disabled ? -1 : 0}
+      aria-disabled={disabled}
+    >
+      {buttonContent}
+    </div>
   );
 };
 

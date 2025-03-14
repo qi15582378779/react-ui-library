@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg?url'
 import './App.css'
+import { Icon } from './index'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <Icon name="test" size={500} />
+      <Icon name='user' color='red' size={40} />
     </>
   )
 }
