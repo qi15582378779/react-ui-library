@@ -1,0 +1,55 @@
+.card-component {
+    align-items: flex-start;
+    background-color: var(--bg);
+    border: 2px solid;
+    border-color: var(--main);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+    position: relative;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card-component[data-variant="default"] {
+    box-shadow: var(--box-shadow);
+}
+
+.card-component .heading {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.card-component .div {
+    color: var(--main);
+    font-family: var(--heading-3xl-font-family);
+    font-size: var(--heading-3xl-font-size);
+    font-style: var(--heading-3xl-font-style);
+    font-weight: var(--heading-3xl-font-weight);
+    letter-spacing: var(--heading-3xl-letter-spacing);
+    line-height: var(--heading-3xl-line-height);
+    margin-top: -1.00px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+
+.card-component .p {
+    color: var(--dark-bg);
+    font-family: var(--base-font-family);
+    font-size: var(--base-font-size);
+    font-style: var(--base-font-style);
+    font-weight: var(--base-font-weight);
+    letter-spacing: var(--base-letter-spacing);
+    line-height: var(--base-line-height);
+    position: relative;
+    transition: color 0.3s ease;
+}

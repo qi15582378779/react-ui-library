@@ -7,6 +7,9 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 export default defineConfig({
   base: "/",
   publicDir: "public",
+  server: {
+    open: true
+  },
   plugins: [
     cssInjectedByJsPlugin(), // css 注入到 js 中
     react(),

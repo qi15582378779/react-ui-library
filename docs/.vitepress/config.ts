@@ -23,6 +23,13 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: '/components/button' },
             { text: 'Icon 图标', link: '/components/icon' },
+            { text: 'Card 卡片', link: '/components/card' },
+          ]
+        },
+        {
+          text: '主题',
+          items: [
+            { text: 'Theme 主题', link: '/components/theme' },
           ]
         }
       ]

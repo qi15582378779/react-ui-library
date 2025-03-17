@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg?url'
-import './App.css'
-import { Icon, Button } from './index'
-import icon from './assets/icons/search.svg'
-import icon1 from '/vite.svg'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg?url";
+import "./App.css";
+import { Icon, Button, Card, ThemeProvider } from "./index";
+import icon from "./assets/icons/search.svg";
+import icon1 from "/vite.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -33,15 +33,21 @@ function App() {
       </p>
 
       <Icon iconName="test" iconSize={[60, 60]} />
-      <Icon iconName='user' iconColor='red' iconSize={40} />
+      <Icon iconName="user" iconColor="red" iconSize={40} />
       <Icon iconSrc={icon} iconSize={32} iconColor="blue" />
       <Icon iconSrc={icon1} iconSize={62} iconColor="blue" />
-      <Icon iconSrc={'https://si.online/logo.svg'} iconColor="blue" />
+      <Icon iconSrc={"https://si.online/logo.svg"} iconColor="blue" />
       <Icon iconSrc="not-found" iconFallback={<span>🚫</span>} />
 
-      <Button text='test' variant='neutral'/>
+      <Button text="test" variant="neutral" />
+
+      <ThemeProvider theme="green">
+        <Card>
+          <p>我是内容</p>
+        </Card>
+      </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

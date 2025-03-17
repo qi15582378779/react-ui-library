@@ -13,7 +13,7 @@ export interface ButtonProps extends IconProps {
   /** 按钮变体样式 */
   variant?: "neutral" | "no-shadow" | "default";
   /** 自定义类名 */
-  className?: string;
+  buttonClassName?: string;
   /** 链接地址 */
   href?: string;
   /** 点击事件 */
@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   text = "Button",
   size = "default",
   variant = "default",
-  className = "",
+  buttonClassName = "",
   href,
   iconName,
   iconSrc,
@@ -47,7 +47,7 @@ const Button: React.FC<ButtonProps> = ({
       "size-icon-variant": size === "icon" && (variant === "default" || variant === "neutral"),
       "size-icon-variant-no": size === "icon" && variant === "no-shadow"
     },
-    className
+    buttonClassName
   );
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
