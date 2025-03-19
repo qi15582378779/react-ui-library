@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: "/my-react-ui-library/",
   title: "React UI Library",
   description: "一个现代化的React UI组件库",
   themeConfig: {
@@ -21,9 +22,12 @@ export default defineConfig({
         {
           text: '基础组件',
           items: [
+            { text: 'Accordion 手风琴', link: '/components/accordion' },
             { text: 'Button 按钮', link: '/components/button' },
-            { text: 'Icon 图标', link: '/components/icon' },
             { text: 'Card 卡片', link: '/components/card' },
+            { text: 'Dialog 对话框', link: '/components/dialog' },
+            { text: 'Icon 图标', link: '/components/icon' },
+            { text: 'ScrollArea 滚动区域', link: '/components/scroll-area' },
           ]
         },
         {
