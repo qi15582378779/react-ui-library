@@ -107,3 +107,8 @@
 .button.disabled .text-wrapper {
   cursor: not-allowed;
 }
+
+.button.disabled:hover {
+  box-shadow: inherit;
+  transform: inherit;
+}

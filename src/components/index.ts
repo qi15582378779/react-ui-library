@@ -17,3 +17,11 @@ export type { CardProps } from "./Card/Card";
 /** accordion */
 export { Accordion, AccordionItem } from "./Accordion/Accordion";
 export type { AccordionProps, AccordionItemProps } from "./Accordion/Accordion";
+
+/** scroll area  */
+export { ScrollArea } from "./ScrollArea/ScrollArea";
+export type { ScrollAreaProps } from "./ScrollArea/ScrollArea";
+
+/** dialog  */
+export { default as Dialog } from "./Dialog/Dialog";
+export type { DialogProps } from "./Dialog/Dialog";

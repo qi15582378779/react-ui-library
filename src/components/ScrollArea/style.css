@@ -1,0 +1,24 @@
+.scrollarea {
+  width: 100%;
+}
+
+.scrollarea .simplebar-scrollbar::before {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  width: 6px;
+  transition: background-color 0.2s;
+}
+
+.scrollarea .simplebar-scrollbar.simplebar-visible::before {
+  opacity: 0.5;
+}
+
+.scrollarea .simplebar-track.simplebar-vertical {
+  width: 8px;
+  right: 2px;
+}
+
+.scrollarea .simplebar-track.simplebar-horizontal {
+  height: 8px;
+  bottom: 2px;
+}

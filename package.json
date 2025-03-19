@@ -35,7 +35,8 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "simplebar-react": "^3.3.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",

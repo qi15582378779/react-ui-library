@@ -1,7 +1,8 @@
 import React from "react";
-import Button, { ButtonProps } from "../Button/Button";
+import Button from "../Button/Button";
 import "./style.css";
 import clsx from "clsx";
+import ScrollArea from "../ScrollArea/ScrollArea";
 
 export interface CardProps {
   /** 宽度 */
@@ -20,7 +21,24 @@ export interface CardProps {
   children?: React.ReactNode;
   /** 变体样式 */
   variant?: "default" | "no-shadow";
+  /** 是否显示滚动 */
+  scroll?: boolean;
 }
+
+interface CardContentProps extends Pick<CardProps, 'title' | 'subTitle' | 'rightContent' | 'children'> {}
+
+const CardContent: React.FC<CardContentProps> = ({ title, subTitle, rightContent, children }) => {
+  return (
+    <div className="card-content">
+      <div className="heading">
+        <div className="div">{title}</div>
+        {rightContent || <Button size="default" text="测试按钮" variant="default" />}
+      </div>
+      <p className="p">{subTitle}</p>
+      {children}
+    </div>
+  );
+};
 
 const CardComponent: React.FC<CardProps> = ({
   width = "570px",
@@ -31,26 +49,24 @@ const CardComponent: React.FC<CardProps> = ({
   rightContent,
   children = "内容区域",
   variant = "default",
+  scroll = false,
 }) => {
+  const content = (
+    <CardContent
+      title={title}
+      subTitle={subTitle}
+      rightContent={rightContent}
+      children={children}
+    />
+  );
+
   return (
     <div
       className={clsx(className, "card-component")}
       data-variant={variant}
-      style={{ width: width, height: height }}
+      style={{ width, height }}
     >
-      <div className="heading">
-        <div className="div">{title}</div>
-
-        {rightContent ? (
-          rightContent
-        ) : (
-          <Button href="" size="default" text="测试按钮" variant="default" />
-        )}
-      </div>
-
-      <p className="p">{subTitle}</p>
-
-      {children}
+      {scroll ? <ScrollArea height={height}>{content}</ScrollArea> : content}
     </div>
   );
 };

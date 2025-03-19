@@ -4,17 +4,20 @@
     border: 2px solid;
     border-color: #000000;
     border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.card-component[data-variant="default"] {
+    box-shadow: var(--box-shadow);
+}
+
+.card-content {
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding: 30px;
     position: relative;
-    max-width: 100%;
-    transition: all 0.3s ease;
-}
-
-.card-component[data-variant="default"] {
-    box-shadow: var(--box-shadow);
 }
 
 .card-component .heading {
@@ -28,7 +31,7 @@
 }
 
 .card-component .div {
-    color:  var(--text);
+    color: var(--text);
     font-family: var(--heading-3xl-font-family);
     font-size: var(--heading-3xl-font-size);
     font-style: var(--heading-3xl-font-style);
