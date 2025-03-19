@@ -34,7 +34,7 @@ function App() {
 
 ## 文档
 
-访问我们的[在线文档](http://localhost:5173)了解更多信息。
+访问我们的[在线文档](https://qi15582378779.github.io/react-ui-library/)了解更多信息。
 
 ## 本地开发
 
