@@ -39,7 +39,7 @@ export default defineConfig({
       ]
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/yourusername/react-ui-library' }
+      { icon: 'github', link: 'https://github.com/qi15582378779/my-react-ui-library' }
     ]
   }
 })
