@@ -63,7 +63,7 @@ export const Icon: React.FC<IconProps> = ({
     fetch(svgPath)
       .then((response) => response.text())
       .then((svg) => {
-        console.log("Original SVG:", iconName || iconSrc, svg);
+        // console.log("Original SVG:", iconName || iconSrc, svg);
 
         const { width, height } = finalSize;
 
@@ -83,7 +83,7 @@ export const Icon: React.FC<IconProps> = ({
           .replace(/stroke=["']([^"']+)["']/g, `stroke="${iconColor}"`) // 修改 stroke
           .replace(/fill=["'](?!none|url\(#)([^"']+)["']/g, `fill="${iconColor}"`); // ✅ 只替换普通颜色，不替换 `url(#...)`
 
-        console.log("Updated SVG:", iconName || iconSrc, updatedSvg);
+        // console.log("Updated SVG:", iconName || iconSrc, updatedSvg);
         setSvgContent(updatedSvg);
       })
       .catch((error) => {

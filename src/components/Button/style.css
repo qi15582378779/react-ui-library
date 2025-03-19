@@ -39,14 +39,20 @@
 }
 
 .button.default {
-  background-color: var(--main);
-  box-shadow: var(--box-shadow);
-}
-
-.button.default {
   display: inline-flex;
   height: 40px;
   padding: 8px 16px;
+  background-color: var(--main);
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.button.default:hover {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+  will-change: transform, box-shadow;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .button.lg {
@@ -56,7 +62,17 @@
 
 .button.no-shadow {
   background-color: var(--main);
+  box-shadow: none;
   display: inline-flex;
+  transition: all 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.button.no-shadow:hover {
+  box-shadow: var(--box-shadow);
+  transform: translate(-2px, -2px);
+  will-change: transform, box-shadow;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .button.neutral {

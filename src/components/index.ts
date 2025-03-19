@@ -13,3 +13,7 @@ export type { IconName, iconNames } from "./Icon/name";
 /** card */
 export { default as Card } from "./Card/Card";
 export type { CardProps } from "./Card/Card";
+
+/** accordion */
+export { Accordion, AccordionItem } from "./Accordion/Accordion";
+export type { AccordionProps, AccordionItemProps } from "./Accordion/Accordion";

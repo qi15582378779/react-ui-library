@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "npm run generate-icons && rm -rf dist && tsc && vite build",
+    "build": "pnpm run generate-icons && rm -rf dist && tsc && vite build",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

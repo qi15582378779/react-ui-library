@@ -2,7 +2,14 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg?url";
 import "./App.css";
-import { Icon, Button, Card, ThemeProvider } from "./index";
+import {
+  Icon,
+  Button,
+  Card,
+  ThemeProvider,
+  Accordion,
+  AccordionItem,
+} from "./index";
 import icon from "./assets/icons/search.svg";
 import icon1 from "/vite.svg";
 
@@ -39,13 +46,26 @@ function App() {
       <Icon iconSrc={"https://si.online/logo.svg"} iconColor="blue" />
       <Icon iconSrc="not-found" iconFallback={<span>🚫</span>} />
 
-      <Button text="test" variant="neutral" />
+      <Button text="test----test" variant="no-shadow" />
 
       <ThemeProvider theme="green">
         <Card>
-          <p>我是内容</p>
+          <Accordion>
+            <AccordionItem title="标题1">
+              <p>内容1</p>
+            </AccordionItem>
+            <AccordionItem title="标题2">
+              <p>内容2</p>
+            </AccordionItem>
+          </Accordion>
         </Card>
       </ThemeProvider>
+
+      <Accordion>
+        <AccordionItem title="标题1">
+          <p>内容1</p>
+        </AccordionItem>
+      </Accordion>
     </>
   );
 }

@@ -38,17 +38,21 @@ const Button: React.FC<ButtonProps> = ({
   iconSize = 24,
   iconColor = "currentColor",
 }) => {
+  console.log("Button render", variant);
   const buttonClass = clsx(
     "button",
     size,
     variant,
     {
       disabled,
-      "size-icon-variant": size === "icon" && (variant === "default" || variant === "neutral"),
-      "size-icon-variant-no": size === "icon" && variant === "no-shadow"
+      "size-icon-variant":
+        size === "icon" && (variant === "default" || variant === "neutral"),
+      "size-icon-variant-no": size === "icon" && variant === "no-shadow",
     },
     buttonClassName
   );
+
+  console.log("Button class", buttonClass);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) {
@@ -58,16 +62,17 @@ const Button: React.FC<ButtonProps> = ({
     onClick?.(e);
   };
 
-  const content = size === "icon" && iconName ? (
-    <Icon
-      iconName={iconName as IconName}
-      iconSize={iconSize}
-      iconSrc={iconSrc}
-      iconColor={iconColor}
-    />
-  ) : (
-    text
-  );
+  const content =
+    size === "icon" && iconName ? (
+      <Icon
+        iconName={iconName as IconName}
+        iconSize={iconSize}
+        iconSrc={iconSrc}
+        iconColor={iconColor}
+      />
+    ) : (
+      text
+    );
 
   const buttonContent = href ? (
     <a
@@ -75,18 +80,16 @@ const Button: React.FC<ButtonProps> = ({
       href={href}
       target={openInNewTab ? "_blank" : undefined}
       rel={openInNewTab ? "noopener noreferrer" : undefined}
-      onClick={e => disabled && e.preventDefault()}
+      onClick={(e) => disabled && e.preventDefault()}
     >
       {content}
     </a>
   ) : (
-    <div className="text-wrapper">
-      {content}
-    </div>
+    <div className="text-wrapper">{content}</div>
   );
 
   return (
-    <div 
+    <div
       className={buttonClass}
       onClick={handleClick}
       role="button"

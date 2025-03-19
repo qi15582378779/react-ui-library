@@ -3,7 +3,7 @@ import Button, { ButtonProps } from "../Button/Button";
 import "./style.css";
 import clsx from "clsx";
 
-export interface CardProps extends ButtonProps {
+export interface CardProps {
   /** 宽度 */
   width?: string;
   /** 高度 */
@@ -18,6 +18,8 @@ export interface CardProps extends ButtonProps {
   rightContent?: React.ReactNode;
   /** 子组件 */
   children?: React.ReactNode;
+  /** 变体样式 */
+  variant?: "default" | "no-shadow";
 }
 
 const CardComponent: React.FC<CardProps> = ({
@@ -28,11 +30,7 @@ const CardComponent: React.FC<CardProps> = ({
   subTitle = "测试小标题",
   rightContent,
   children = "内容区域",
-  buttonClassName,
-  size = "default",
-  text = "测试按钮",
   variant = "default",
-  href,
 }) => {
   return (
     <div
@@ -46,13 +44,7 @@ const CardComponent: React.FC<CardProps> = ({
         {rightContent ? (
           rightContent
         ) : (
-          <Button
-            buttonClassName={buttonClassName}
-            href={href}
-            size={size}
-            text={text}
-            variant={variant}
-          />
+          <Button href="" size="default" text="测试按钮" variant="default" />
         )}
       </div>
 

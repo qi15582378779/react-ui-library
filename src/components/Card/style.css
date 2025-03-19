@@ -1,8 +1,8 @@
 .card-component {
     align-items: flex-start;
-    background-color: var(--bg);
+    background-color: #ffffff;
     border: 2px solid;
-    border-color: var(--main);
+    border-color: #000000;
     border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
 }
 
 .card-component .div {
-    color: var(--main);
+    color:  var(--text);
     font-family: var(--heading-3xl-font-family);
     font-size: var(--heading-3xl-font-size);
     font-style: var(--heading-3xl-font-style);
